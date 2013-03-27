@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Gdc_Groupdocscomparison>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Gdc_Groupdocscomparison>
+    </modules>
+</config>

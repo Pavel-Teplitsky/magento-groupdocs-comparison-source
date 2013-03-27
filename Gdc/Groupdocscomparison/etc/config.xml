@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Gdc_Groupdocscomparison>
+            <version>0.1.0</version>
+        </Gdc_Groupdocscomparison>
+    </modules>
+    
+    <global>
+        
+    <blocks>
+         <adminhtml>
+            <rewrite>
+                <cms_page_edit>Gdc_Groupdocscomparison_Block_Adminhtml_Cms_Page_Edit</cms_page_edit>
+                <cms_form_form>Gdc_Groupdocscomparison_Block_Adminhtml_Cms_From_Form</cms_form_form>
+            </rewrite>
+        </adminhtml>
+    </blocks>
+
+        
+        <models>
+            <groupdocscomparison>
+                <class>Gdc_Groupdocscomparison_Model</class>
+                <resourceModel>groupdocscomparison_mysql4</resourceModel>
+            </groupdocscomparison>
+            <groupdocscomparison_mysql4>
+                <class>Gdc_Groupdocscomparison_Model_Mysql4</class>
+                <entities>
+                    <groupdocscomparison>
+                        <table>groupdocsc</table>
+                    </groupdocscomparison>
+                </entities>
+            </groupdocscomparison_mysql4>
+        </models>
+<resources>
+        <groupdocscomparison_write>
+            <connection>
+                <use>core_write</use>
+            </connection>
+        </groupdocscomparison_write>
+
+       <groupdocscomparison_read>
+          <connection>
+             <use>core_read</use>
+          </connection>
+       </groupdocscomparison_read>
+       
+       <groupdocscomparison_delete>
+          <connection>
+             <use>core_delete</use>
+          </connection>
+       </groupdocscomparison_delete>
+</resources>
+
+        
+        
+        
+        
+        <blocks>
+            <groupdocscomparison>
+                <class>Gdc_Groupdocscomparison_Block</class>
+            </groupdocscomparison>
+        </blocks>
+        <helpers>
+            <groupdocscomparison>
+                <class>Gdc_Groupdocscomparison_Helper</class>
+            </groupdocscomparison>  
+        </helpers>
+    </global>
+    
+    <admin>
+        <routers>
+            <groupdocscomparison>
+                <use>admin</use>
+                <args>
+                    <module>Gdc_Groupdocscomparison</module>
+                    <frontName>groupdocscomparison</frontName>
+                </args>
+            </groupdocscomparison>
+        </routers>
+    </admin>
+    
+    <adminhtml>
+        
+        <menu>
+            <catalog>
+                <children>
+                    <groupdocscomparison_adminform translate="title" module="groupdocscomparison">
+                        <title>Groupdocs Comparison</title>
+                        <action>groupdocscomparison/adminhtml_viewer</action>
+                    </groupdocscomparison_adminform>
+                </children>
+            </catalog>
+        </menu>
+        
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <catalog>
+                            <children>
+                                <groupdocscomparison_adminform>
+                                    <title>Groupdocs Comparison</title>
+                                </groupdocscomparison_adminform>
+                            </children>
+                        </catalog>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        
+        <layout>
+            <updates>
+                <groupdocscomparison>
+                    <file>groupdocscomparison.xml</file>
+                </groupdocscomparison>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>
