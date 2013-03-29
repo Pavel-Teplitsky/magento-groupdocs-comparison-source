@@ -12,11 +12,12 @@
          <adminhtml>
             <rewrite>
                 <cms_page_edit>Gdc_Groupdocscomparison_Block_Adminhtml_Cms_Page_Edit</cms_page_edit>
-                <cms_form_form>Gdc_Groupdocscomparison_Block_Adminhtml_Cms_From_Form</cms_form_form>
+              
             </rewrite>
+           
         </adminhtml>
     </blocks>
-
+               
         
         <models>
             <groupdocscomparison>
@@ -52,13 +53,10 @@
        </groupdocscomparison_delete>
 </resources>
 
-        
-        
-        
-        
         <blocks>
             <groupdocscomparison>
                 <class>Gdc_Groupdocscomparison_Block</class>
+                
             </groupdocscomparison>
         </blocks>
         <helpers>
@@ -117,4 +115,8 @@
             </updates>
         </layout>
     </adminhtml>
+<!--    <reference name="head">
+      <action method="addJs"><script>insert.js</script></action>
+
+    </reference>-->
 </config>

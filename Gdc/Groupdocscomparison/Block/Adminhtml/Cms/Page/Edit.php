@@ -17,11 +17,24 @@
                     anchor[i].className ="tab-item-link active";
                     var tab2 = document.getElementById('page_tabs_content_section_content');
                     tab2.style.display = 'block';
+                    var form = document.createElement('div');
+                    form.setAttribute("id", "groupdocs")
+                    form.innerHTML = '<form action="#" name="form">' +
+                                        '<label for="embedKey">Embed Key</label><br />'+
+                                        '<input type="text", name="embedKey" value="" /><br />'+
+                                        '<label for="fileId">File ID</label><br />'+
+                                        '<input type="text" name="fileid" value=""><br />'+
+                                        '<input type="button" name="doRequest" value="Make request" onClick="insertIframe();">'+
+                                        '<input type="button" name="cancel" value="Cancel" onClick="delForm()">'+
+                                    '</form>'+
+                                    '<br />'+
+                                    '<a target="blank" href="http://groupdocs.com/docs/display/gendoc/FAQs">See our FAQ</a> to learn how to use Comparison.';
+                            tab2.appendChild(form);
                 }
             }
         }
         // Enter GroupDocs File ID
-        var form = window.open(window.location.hostname + '/../Form/Form.php', 'GroupDocs Compare', 'width=450,height=260,resizable=no,scrollbars=no')
+//        var form = popWin('groupdocscomparison/form.php', 'GroupDocs Compare', 'width=450,height=260, resizable=no, scrollbars=no');
         // all good continue
       
 //        var cmsName = 'Magento'
@@ -33,18 +46,25 @@
 //        
 
     }
+   
 </script>
 <?php
 class Gdc_Groupdocscomparison_Block_Adminhtml_Cms_Page_Edit extends Mage_Adminhtml_Block_Cms_Page_Edit {
     public function  __construct() {
 
         parent::__construct();
-
+      
+        $head = Mage::app()->getFrontController()
+            ->getAction()
+            ->getLayout()
+            ->getBlock('root')
+            ->getChild('head');
+        $head->addJs('../app/code/local/Gdc/Groupdocscomparison/js/insert.js');
         $this->_addButton('button_id', array(
             'label'     => Mage::helper('cms')->__('GroupDocs Comparison'),
-            'onclick'   => 'gdfileid()',
+            'onclick'   => "gdfileid()",
             'class'     => 'go'
         ), 0, 100, 'footer', 'header');
-
+       
     }
 }
